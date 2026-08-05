@@ -7,29 +7,28 @@ export default function Step2Emergency({ nextStep, prevStep }) {
   return (
     <div className="animate-fade-in">
       <div style={styles.header}>
-        <h2 style={styles.title}>Emergency &<br/>Family</h2>
+        <h2 style={styles.title}>Emergency &amp; Family</h2>
       </div>
 
       <div style={styles.form}>
         <div style={styles.inputGroup}>
           <label style={styles.label}>Emergency Contact Name</label>
-          <input type="text" placeholder="Contact Name" style={styles.input} required />
+          <input type="text" style={styles.input} required />
         </div>
 
-        <div style={styles.row}>
-          <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <label style={styles.label}>Relationship</label>
-            <input type="text" placeholder="Relationship" style={styles.input} required />
-          </div>
-          <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <label style={styles.label}>Phone Number</label>
-            <input type="tel" placeholder="Phone Number" style={styles.input} required />
-          </div>
+        <div style={styles.inputGroup}>
+          <label style={styles.label}>Relationship</label>
+          <input type="text" style={styles.input} required />
+        </div>
+        
+        <div style={styles.inputGroup}>
+          <label style={styles.label}>Phone Number</label>
+          <input type="tel" style={styles.input} required />
         </div>
 
         <div style={styles.inputGroup}>
           <label style={styles.label}>Parent / Spouse / Family Contact</label>
-          <input type="text" placeholder="Family Contact Details" style={styles.input} required />
+          <input type="text" style={styles.input} required />
         </div>
 
         <div style={styles.inputGroup}>
@@ -43,7 +42,7 @@ export default function Step2Emergency({ nextStep, prevStep }) {
             </label>
           </div>
           {hasDependents === 'yes' && (
-            <input type="text" placeholder="Please provide details" style={{ ...styles.input, marginTop: '8px' }} required />
+            <input type="text" style={{ ...styles.input, marginTop: '8px' }} required />
           )}
         </div>
 
@@ -60,7 +59,7 @@ export default function Step2Emergency({ nextStep, prevStep }) {
               <input type="radio" name="familyAware" value="na" required /> Not Applicable
             </label>
           </div>
-          <div style={styles.line}></div>
+
         </div>
       </div>
     </div>

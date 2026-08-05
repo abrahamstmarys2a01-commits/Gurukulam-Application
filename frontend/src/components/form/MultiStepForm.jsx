@@ -7,7 +7,6 @@ import Step2Emergency from './Step2Emergency';
 import Step3Health from './Step3Health';
 import Step4Calling from './Step4Calling';
 import Step5Conduct from './Step5Conduct';
-import Step6Declaration from './Step6Declaration';
 
 export default function MultiStepForm() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -76,7 +75,6 @@ export default function MultiStepForm() {
           <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
             <Step4Calling />
             <Step5Conduct />
-            <Step6Declaration />
           </div>
         )}
 
@@ -110,10 +108,12 @@ const styles = {
   container: {
     backgroundColor: 'white',
     padding: '40px 50px',
-    borderRadius: '16px',
-    boxShadow: '0 10px 40px rgba(0,0,0,0.05)',
+    borderRadius: '8px',
+    border: '1px solid #dadce0',
+    borderTop: '8px solid var(--primary-color)',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
     width: '100%',
-    maxWidth: '900px',
+    maxWidth: '800px',
     margin: '0 auto',
   },
   actions: {
@@ -121,6 +121,5 @@ const styles = {
     justifyContent: 'space-between',
     marginTop: '20px',
     paddingTop: '30px',
-    borderTop: '1px solid var(--border-color)',
   }
 };

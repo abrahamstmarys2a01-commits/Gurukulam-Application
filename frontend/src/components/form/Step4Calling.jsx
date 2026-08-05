@@ -7,7 +7,7 @@ export default function Step4Calling({ nextStep, prevStep }) {
   return (
     <div className="animate-fade-in">
       <div style={styles.header}>
-        <h2 style={styles.title}>Spiritual<br/>Calling</h2>
+        <h2 style={styles.title}>Spiritual Calling</h2>
       </div>
 
       <div style={styles.form}>
@@ -15,7 +15,7 @@ export default function Step4Calling({ nextStep, prevStep }) {
         <div style={styles.inputGroup}>
           <label style={styles.label}>Why do you wish to become a Sadhu and live at the Gurukulam?</label>
           <textarea 
-            placeholder="Please share your motivation..." 
+ 
             style={styles.textarea} 
             required 
             rows={4}
@@ -34,7 +34,7 @@ export default function Step4Calling({ nextStep, prevStep }) {
             </label>
           </div>
           {livedInAshram === 'yes' && (
-            <input type="text" placeholder="Please provide details" style={{ ...styles.input, marginTop: '8px' }} required />
+            <input type="text" style={{ ...styles.input, marginTop: '8px' }} required />
           )}
         </div>
 
@@ -62,7 +62,7 @@ export default function Step4Calling({ nextStep, prevStep }) {
               <input type="radio" name="respect" value="no" required /> No
             </label>
           </div>
-          <div style={styles.line}></div>
+
         </div>
       </div>
     </div>

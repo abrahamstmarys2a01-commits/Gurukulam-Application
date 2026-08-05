@@ -9,7 +9,7 @@ export default function Step5Conduct({ nextStep, prevStep }) {
   return (
     <div className="animate-fade-in">
       <div style={styles.header}>
-        <h2 style={styles.title}>Safety, Conduct &<br/>Responsibility</h2>
+        <h2 style={styles.title}>Safety, Conduct &amp; Responsibility</h2>
       </div>
 
       <div style={styles.form}>
@@ -44,7 +44,7 @@ export default function Step5Conduct({ nextStep, prevStep }) {
             <input type="checkbox" required style={styles.checkbox} />
             I Understand & Agree
           </label>
-          <div style={styles.line}></div>
+
         </div>
       </div>
     </div>

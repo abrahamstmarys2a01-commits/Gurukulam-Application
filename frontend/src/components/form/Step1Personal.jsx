@@ -18,7 +18,7 @@ export default function Step1Personal({ nextStep, prevStep, currentStep }) {
   return (
     <div className="animate-fade-in">
       <div style={styles.header}>
-        <h2 style={styles.title}>Personal<br/>Information</h2>
+        <h2 style={styles.title}>Personal Information</h2>
         <div style={styles.photoUpload}>
           <label style={styles.photoCircle}>
             <input type="file" style={{ display: 'none' }} accept="image/*" onChange={handleImageChange} />
@@ -28,13 +28,14 @@ export default function Step1Personal({ nextStep, prevStep, currentStep }) {
               <Camera size={24} color="var(--primary-color)" />
             )}
           </label>
+          <div style={styles.uploadText}>Upload Image</div>
         </div>
       </div>
 
       <div style={styles.form}>
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Full Legal Name</label>
-          <input type="text" placeholder="John Doe" style={styles.input} required />
+          <label style={styles.label}>Full Name</label>
+          <input type="text" style={styles.input} required />
         </div>
 
         <div style={styles.inputGroup}>
@@ -46,13 +47,13 @@ export default function Step1Personal({ nextStep, prevStep, currentStep }) {
 
         <div style={styles.inputGroup}>
           <label style={styles.label}>Aadhaar / Passport Number</label>
-          <input type="text" placeholder="Enter ID number" style={styles.input} required />
+          <input type="text" style={styles.input} required />
         </div>
 
         <div style={styles.inputGroup}>
           <label style={styles.label}>Current Address</label>
-          <input type="text" placeholder="Full residential address" style={styles.input} required />
-          <div style={styles.line}></div>
+          <input type="text" style={styles.input} required />
+
         </div>
       </div>
     </div>
@@ -72,8 +73,15 @@ const styles = {
   },
   photoUpload: {
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    gap: '8px',
+  },
+  uploadText: {
+    fontSize: '12px',
+    color: 'var(--text-muted)',
+    fontWeight: '500',
   },
   photoCircle: {
     width: '80px',

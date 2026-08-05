@@ -9,7 +9,7 @@ export default function Step6Declaration({ prevStep }) {
   return (
     <div className="animate-fade-in">
       <div style={styles.header}>
-        <h2 style={styles.title}>Important<br/>Declaration</h2>
+        <h2 style={styles.title}>Important Declaration</h2>
       </div>
 
       <div style={styles.declarationBox}>
@@ -29,14 +29,14 @@ export default function Step6Declaration({ prevStep }) {
         <div style={styles.row}>
           <div style={{ ...styles.inputGroup, flex: 1 }}>
             <label style={styles.label}>Applicant Name</label>
-            <input type="text" placeholder="Full Name" style={styles.input} required />
+            <input type="text" style={styles.input} required />
           </div>
         </div>
         
         <div style={styles.row}>
           <div style={{ ...styles.inputGroup, flex: 1 }}>
             <label style={styles.label}>Signature</label>
-            <input type="text" placeholder="Type name to sign" style={styles.input} required />
+            <input type="text" style={styles.input} required />
           </div>
           <div style={{ ...styles.inputGroup, flex: 1 }}>
             <label style={styles.label}>Date</label>
@@ -46,7 +46,7 @@ export default function Step6Declaration({ prevStep }) {
 
         <div style={styles.inputGroup}>
           <label style={styles.label}>Place</label>
-          <input type="text" placeholder="City, Country" style={styles.input} required />
+          <input type="text" style={styles.input} required />
         </div>
 
         {/* Office Use Section */}

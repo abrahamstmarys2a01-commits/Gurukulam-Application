@@ -1,23 +1,32 @@
+import { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MultiStepForm from '../components/form/MultiStepForm';
 
 export default function Apply() {
+  const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    // Automatically transition to the form after the zoom animation completes
+    const timer = setTimeout(() => {
+      setShowForm(true);
+    }, 2500); // 2.5 seconds splash screen
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!showForm) {
+    return (
+      <div style={styles.splashContainer}>
+        <img src="/logo.jpg" alt="Gurukulam Logo" style={styles.splashImage} className="animate-zoom-in" />
+      </div>
+    );
+  }
+
   return (
-    <div style={styles.page}>
-      <header style={styles.header}>
-        <div className="container" style={styles.container}>
-          <Link to="/" style={styles.logoGroup}>
-            <Home size={24} color="var(--primary-dark)" />
-            <span style={styles.logoText} className="responsive-logo-text">
-              SHREE DATTA EASANAMMA GURUKULAM
-            </span>
-          </Link>
-        </div>
-      </header>
-      
+    <div style={styles.page} className="google-form-theme animate-fade-in">
       <main style={styles.main}>
-        <div className="container">
+        <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
           <MultiStepForm />
         </div>
       </main>
@@ -56,8 +65,22 @@ const styles = {
   main: {
     flex: 1,
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     padding: '40px 0',
+  },
+  splashContainer: {
+    minHeight: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'var(--background-light)',
+  },
+  splashImage: {
+    width: '300px',
+    height: '300px',
+    objectFit: 'cover',
+    borderRadius: '50%',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
   }
 };

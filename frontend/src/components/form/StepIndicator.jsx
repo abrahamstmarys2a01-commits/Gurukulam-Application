@@ -4,7 +4,7 @@ export default function StepIndicator({ currentStep, totalSteps }) {
   const getStepLabel = () => {
     switch (currentStep) {
       case 1: return 'Part 1 (Personal, Emergency, Health)';
-      case 2: return 'Part 2 (Spiritual, Conduct, Declaration)';
+      case 2: return 'Part 2 (Spiritual, Conduct)';
       default: return `Page ${currentStep}`;
     }
   };

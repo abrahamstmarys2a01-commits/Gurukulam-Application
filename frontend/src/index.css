@@ -100,6 +100,16 @@ button {
   animation: fadeIn 0.8s ease-out forwards;
 }
 
+@keyframes zoomInCenter {
+  0% { transform: scale(0.3); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-zoom-in {
+  animation: zoomInCenter 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   /* Layout Padding */
@@ -136,4 +146,14 @@ button {
     font-size: 14px !important;
     white-space: normal !important;
   }
+}
+
+/* Google Form Theme Override */
+.google-form-theme {
+  --primary-color: #1a73e8;
+  --primary-dark: #174ea6;
+  --secondary-color: #5f6368;
+  --background-light: #f0f4f9;
+  --text-main: #202124;
+  --font-serif: var(--font-sans);
 }

@@ -10,7 +10,7 @@ export default function Step3Health({ nextStep, prevStep }) {
   return (
     <div className="animate-fade-in">
       <div style={styles.header}>
-        <h2 style={styles.title}>Health &<br/>Safety</h2>
+        <h2 style={styles.title}>Health &amp; Safety</h2>
       </div>
 
       <div style={styles.form}>
@@ -26,7 +26,7 @@ export default function Step3Health({ nextStep, prevStep }) {
             </label>
           </div>
           {hasMedicalCondition === 'yes' && (
-            <input type="text" placeholder="Please provide details" style={{ ...styles.input, marginTop: '8px' }} required />
+            <input type="text" style={{ ...styles.input, marginTop: '8px' }} required />
           )}
         </div>
 
@@ -42,7 +42,7 @@ export default function Step3Health({ nextStep, prevStep }) {
             </label>
           </div>
           {takingMeds === 'yes' && (
-            <input type="text" placeholder="Please provide details" style={{ ...styles.input, marginTop: '8px' }} required />
+            <input type="text" style={{ ...styles.input, marginTop: '8px' }} required />
           )}
         </div>
 
@@ -58,7 +58,7 @@ export default function Step3Health({ nextStep, prevStep }) {
             </label>
           </div>
           {specialFood === 'yes' && (
-            <input type="text" placeholder="Please provide details" style={{ ...styles.input, marginTop: '8px' }} required />
+            <input type="text" style={{ ...styles.input, marginTop: '8px' }} required />
           )}
         </div>
 
@@ -74,7 +74,7 @@ export default function Step3Health({ nextStep, prevStep }) {
             </label>
           </div>
           {wellbeingInfo === 'yes' && (
-            <input type="text" placeholder="Please provide details" style={{ ...styles.input, marginTop: '8px' }} required />
+            <input type="text" style={{ ...styles.input, marginTop: '8px' }} required />
           )}
         </div>
 
@@ -92,7 +92,7 @@ export default function Step3Health({ nextStep, prevStep }) {
             <option value="AB+">AB+</option>
             <option value="AB-">AB-</option>
           </select>
-          <div style={styles.line}></div>
+
         </div>
       </div>
     </div>
