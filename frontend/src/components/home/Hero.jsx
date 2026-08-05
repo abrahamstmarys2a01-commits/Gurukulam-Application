@@ -12,10 +12,10 @@ export default function Hero() {
         <div style={styles.badge}>
           WELCOME TO THE SANCTUARY
         </div>
-        <h1 style={styles.title}>
+        <h1 className="hero-title" style={styles.title}>
           SHREE DATTA EASANAMMA<br/>GURUKULAM
         </h1>
-        <p style={styles.subtitle}>
+        <p className="hero-subtitle" style={styles.subtitle}>
           Unearthing the timeless essence of Sanatana Dharma.
           Embark on a journey of inner peace and spiritual awakening.
         </p>

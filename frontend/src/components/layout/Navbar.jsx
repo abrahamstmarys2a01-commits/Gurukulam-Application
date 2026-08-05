@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className="container" style={styles.container}>
         <Link to="/" style={styles.logoGroup}>
           <Home size={24} color="var(--primary-color)" />
-          <span style={styles.logoText}>
+          <span style={styles.logoText} className="responsive-logo-text">
             SHREE DATTA EASANAMMA GURUKULAM
           </span>
         </Link>

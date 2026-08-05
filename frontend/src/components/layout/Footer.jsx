@@ -8,7 +8,7 @@ export default function Footer() {
           <div style={styles.iconBox}>
             <Home size={20} color="var(--background-light)" />
           </div>
-          <span style={styles.logoText}>
+          <span style={styles.logoText} className="responsive-logo-text">
             SHREE DATTA EASANAMMA GURUKULAM
           </span>
         </div>

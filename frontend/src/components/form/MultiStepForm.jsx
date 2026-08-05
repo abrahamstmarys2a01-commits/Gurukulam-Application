@@ -59,7 +59,7 @@ export default function MultiStepForm() {
   }
 
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className="responsive-form-card">
       <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
       
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
@@ -80,7 +80,7 @@ export default function MultiStepForm() {
           </div>
         )}
 
-        <div style={styles.actions}>
+        <div style={styles.actions} className="responsive-actions">
           <button 
             type="button" 
             className="btn btn-outline" 

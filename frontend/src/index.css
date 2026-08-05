@@ -99,3 +99,41 @@ button {
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Layout Padding */
+  .container {
+    padding: 0 15px;
+  }
+  .responsive-section {
+    padding: 40px 0 !important;
+  }
+  
+  /* Hero */
+  .hero-title {
+    font-size: 24px !important;
+  }
+  .hero-subtitle {
+    font-size: 14px !important;
+  }
+
+  /* Form */
+  .responsive-form-card {
+    padding: 30px 20px !important;
+  }
+  .responsive-actions {
+    flex-direction: column-reverse !important;
+    gap: 16px !important;
+  }
+  .responsive-actions button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Headers / Typography */
+  .responsive-logo-text {
+    font-size: 14px !important;
+    white-space: normal !important;
+  }
+}
