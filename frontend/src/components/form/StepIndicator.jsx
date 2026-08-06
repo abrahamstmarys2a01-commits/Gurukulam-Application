@@ -3,8 +3,12 @@ export default function StepIndicator({ currentStep, totalSteps }) {
 
   const getStepLabel = () => {
     switch (currentStep) {
-      case 1: return 'Part 1 (Personal, Emergency, Health)';
-      case 2: return 'Part 2 (Spiritual, Conduct)';
+      case 1: return 'Personal Information';
+      case 2: return 'Emergency Contacts';
+      case 3: return 'Health & Safety';
+      case 4: return 'Spiritual Calling';
+      case 5: return 'Conduct Rules';
+      case 6: return 'Declaration';
       default: return `Page ${currentStep}`;
     }
   };

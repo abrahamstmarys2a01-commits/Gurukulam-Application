@@ -4,31 +4,26 @@ export default function Footer() {
   return (
     <footer style={styles.footer}>
       <div className="container" style={styles.container}>
-        <div style={styles.logoGroup}>
-          <div style={styles.iconBox}>
-            <Home size={20} color="var(--background-light)" />
-          </div>
-          <span style={styles.logoText} className="responsive-logo-text">
-            SHREE DATTA EASANAMMA GURUKULAM
-          </span>
+        <div style={styles.topSection}>
+          <h2 style={styles.title}>Sisu Bala · Garbha Viruthi</h2>
+          <p style={styles.subtitle}>Easanamma Gurukulam · Rooted in Siddhar Lineage · Guided by Grace</p>
         </div>
         
         <div style={styles.links}>
-          <a href="#">Sacred Teachings</a>
-          <a href="#">Daily Sadhana</a>
-          <a href="#">eSeva Donation</a>
-          <a href="#">Contact Us</a>
+          <a href="#" style={styles.link}>The Need</a>
+          <a href="#" style={styles.link}>The Path</a>
+          <a href="#" style={styles.link}>The Stages</a>
+          <a href="#" style={styles.link}>90-Day Program</a>
+          <a href="#" style={styles.link}>For Couples</a>
+          <a href="#" style={styles.link}>FAQ</a>
         </div>
         
-        <div style={styles.contactInfo}>
-          <p style={styles.contactText}>SHREE DATTA EASANAMMA GURUKULAM</p>
-          <p style={styles.contactText}>Nanthavanapatti, Thanjavur, Tamil Nadu, India</p>
-          <p style={styles.contactText}>📞 9600014331 | 🌐 easanamma.com</p>
+        <div style={styles.bottomSection}>
+          <p style={styles.motto}>Rooted in Siddhar lineage · Guided by Grace · Held in devotion</p>
+          <p style={styles.copyright}>
+            © 2026 Easanamma Gurukulam · Sisu Bala Garbha Viruthi · All rights reserved
+          </p>
         </div>
-        
-        <p style={styles.copyright}>
-          © 2024 Shree Datta Easanamma Gurukulam.<br/>All Rights Reserved.
-        </p>
       </div>
     </footer>
   );
@@ -36,60 +31,61 @@ export default function Footer() {
 
 const styles = {
   footer: {
-    backgroundColor: '#e6ded3',
-    padding: '40px 0',
+    backgroundColor: '#0a0a0a',
+    padding: '60px 0 40px',
     textAlign: 'center',
-    borderTop: '1px solid var(--border-color)',
+    color: '#ffffff',
+    fontFamily: 'var(--font-serif)',
   },
   container: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    gap: '24px',
+    gap: '30px',
   },
-  logoGroup: {
+  topSection: {
     display: 'flex',
-    alignItems: 'center',
-    gap: '12px',
-    textAlign: 'left',
+    flexDirection: 'column',
+    gap: '8px',
   },
-  iconBox: {
-    backgroundColor: 'var(--secondary-color)',
-    padding: '8px',
-    borderRadius: '4px',
-    display: 'flex',
-  },
-  logoText: {
-    fontFamily: 'var(--font-serif)',
+  title: {
     fontSize: '18px',
     fontWeight: 'bold',
-    color: 'var(--primary-color)',
-    lineHeight: '1.2',
-    whiteSpace: 'nowrap',
+    margin: 0,
+    letterSpacing: '0.5px',
+  },
+  subtitle: {
+    fontSize: '15px',
+    margin: 0,
+    color: '#eaeaea',
   },
   links: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: '16px',
-    fontSize: '14px',
-    color: 'var(--text-muted)',
-  },
-  copyright: {
-    fontSize: '12px',
-    color: 'var(--primary-color)',
-    opacity: 0.8,
-  },
-  contactInfo: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '4px',
-    textAlign: 'center',
+    gap: '24px',
     margin: '10px 0',
   },
-  contactText: {
+  link: {
     fontSize: '14px',
-    color: 'var(--secondary-color)',
-    lineHeight: '1.4',
-  }
+    color: '#ffffff',
+    textDecoration: 'none',
+    fontWeight: '500',
+  },
+  bottomSection: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '16px',
+    marginTop: '10px',
+  },
+  motto: {
+    fontSize: '14px',
+    color: '#999999',
+    margin: 0,
+  },
+  copyright: {
+    fontSize: '13px',
+    color: '#777777',
+    margin: 0,
+  },
 };

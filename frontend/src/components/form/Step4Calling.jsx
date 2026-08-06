@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { ArrowRight, ArrowLeft, BookOpen } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Step4Calling({ nextStep, prevStep }) {
@@ -6,17 +6,24 @@ export default function Step4Calling({ nextStep, prevStep }) {
 
   return (
     <div className="animate-fade-in">
-      <div style={styles.header}>
-        <h2 style={styles.title}>Spiritual Calling</h2>
+      <div style={styles.banner} className="section-banner">
+        <div style={styles.bannerIconBox}>
+          <BookOpen size={24} color="#1976d2" />
+        </div>
+        <div style={styles.bannerTextContainer}>
+          <h2 style={styles.bannerTitle}>Spiritual Calling</h2>
+          <p style={styles.bannerSubtitle}>Section 4 — Inner Calling &amp; Discipline</p>
+        </div>
       </div>
 
       <div style={styles.form}>
         {/* Q19 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Why do you wish to become a Sadhu and live at the Gurukulam?</label>
+          <label style={styles.label}>Why do you wish to become a Sadhu and live at the Gurukulam? <span style={{color: 'red'}}>*</span></label>
           <textarea 
  
             style={styles.textarea} 
+            placeholder="Please describe your spiritual calling and reasons for joining..."
             required 
             rows={4}
           ></textarea>
@@ -24,7 +31,7 @@ export default function Step4Calling({ nextStep, prevStep }) {
 
         {/* Q20 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Have you previously lived in an Ashram, Gurukulam or spiritual community?</label>
+          <label style={styles.label}>Have you previously lived in an Ashram, Gurukulam or spiritual community? <span style={{color: 'red'}}>*</span></label>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
               <input type="radio" name="livedInAshram" value="no" checked={livedInAshram === 'no'} onChange={() => setLivedInAshram('no')} /> No
@@ -34,13 +41,13 @@ export default function Step4Calling({ nextStep, prevStep }) {
             </label>
           </div>
           {livedInAshram === 'yes' && (
-            <input type="text" style={{ ...styles.input, marginTop: '8px' }} required />
+            <input type="text" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details of previous ashram experience" required />
           )}
         </div>
 
         {/* Q21 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Are you prepared to follow a simple life of discipline, silence, spiritual practice and seva?</label>
+          <label style={styles.label}>Are you prepared to follow a simple life of discipline, silence, spiritual practice and seva? <span style={{color: 'red'}}>*</span></label>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
               <input type="radio" name="discipline" value="yes" required /> Yes
@@ -53,7 +60,7 @@ export default function Step4Calling({ nextStep, prevStep }) {
 
         {/* Q22 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Are you willing to respect the Guru, Gurukulam, residents, visitors and the spiritual environment?</label>
+          <label style={styles.label}>Are you willing to respect the Guru, Gurukulam, residents, visitors and the spiritual environment? <span style={{color: 'red'}}>*</span></label>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
               <input type="radio" name="respect" value="yes" required /> Yes
@@ -72,9 +79,43 @@ export default function Step4Calling({ nextStep, prevStep }) {
 const styles = {
   header: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     marginBottom: '30px',
+  },
+  banner: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#1976d2',
+    padding: '20px',
+    borderRadius: '8px',
+    marginBottom: '30px',
+    gap: '20px',
+    color: 'white',
+  },
+  bannerIconBox: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    padding: '12px',
+    borderRadius: '12px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bannerTextContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  bannerTitle: {
+    fontSize: '24px',
+    fontWeight: 'bold',
+    margin: 0,
+    color: 'white',
+  },
+  bannerSubtitle: {
+    fontSize: '14px',
+    margin: '4px 0 0 0',
+    opacity: 0.9,
+    fontStyle: 'italic',
   },
   title: {
     fontSize: '28px',
@@ -92,32 +133,35 @@ const styles = {
   },
   label: {
     fontSize: '14px',
-    fontWeight: '500',
+    fontWeight: '600',
     color: 'var(--primary-dark)',
     lineHeight: '1.4',
   },
   input: {
-    padding: '10px 0',
-    border: 'none',
-    borderBottom: '1px solid #999',
-    backgroundColor: 'transparent',
+    padding: '20px 24px',
+    height: '60px',
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    backgroundColor: 'white',
     fontSize: '16px',
     fontFamily: 'inherit',
     color: 'var(--text-main)',
     outline: 'none',
     width: '100%',
+    transition: 'border-color 0.3s ease',
   },
   textarea: {
-    padding: '12px',
-    border: '1px solid var(--border-color)',
+    padding: '16px 20px',
+    border: '1px solid #ccc',
     borderRadius: '8px',
-    backgroundColor: 'var(--background-light)',
-    fontSize: '15px',
+    backgroundColor: 'white',
+    fontSize: '16px',
     fontFamily: 'inherit',
     color: 'var(--text-main)',
     outline: 'none',
     resize: 'vertical',
     marginTop: '4px',
+    transition: 'border-color 0.3s ease',
   },
   radioGroup: {
     display: 'flex',

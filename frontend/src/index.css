@@ -157,3 +157,25 @@ button {
   --text-main: #202124;
   --font-serif: var(--font-sans);
 }
+
+/* Section Banners */
+.section-banner {
+  margin-top: -40px !important;
+  margin-left: -50px !important;
+  margin-right: -50px !important;
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  border-radius: 0 !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+}
+
+@media (max-width: 768px) {
+  .section-banner {
+    margin-top: -30px !important;
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}

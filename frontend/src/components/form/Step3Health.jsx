@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Heart } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Step3Health({ nextStep, prevStep }) {
@@ -9,14 +9,20 @@ export default function Step3Health({ nextStep, prevStep }) {
 
   return (
     <div className="animate-fade-in">
-      <div style={styles.header}>
-        <h2 style={styles.title}>Health &amp; Safety</h2>
+      <div style={styles.banner} className="section-banner">
+        <div style={styles.bannerIconBox}>
+          <Heart size={24} color="#1976d2" />
+        </div>
+        <div style={styles.bannerTextContainer}>
+          <h2 style={styles.bannerTitle}>Health &amp; Safety</h2>
+          <p style={styles.bannerSubtitle}>Section 3 — Medical Information &amp; Well-being</p>
+        </div>
       </div>
 
       <div style={styles.form}>
         {/* Q14 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Do you have any medical condition, allergy, disability or physical limitation?</label>
+          <label style={styles.label}>Do you have any medical condition, allergy, disability or physical limitation? <span style={{color: 'red'}}>*</span></label>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
               <input type="radio" name="medicalCondition" value="no" checked={hasMedicalCondition === 'no'} onChange={() => setHasMedicalCondition('no')} /> No
@@ -26,13 +32,13 @@ export default function Step3Health({ nextStep, prevStep }) {
             </label>
           </div>
           {hasMedicalCondition === 'yes' && (
-            <input type="text" style={{ ...styles.input, marginTop: '8px' }} required />
+            <input type="text" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details" required />
           )}
         </div>
 
         {/* Q15 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Are you currently taking regular medicines or receiving ongoing treatment?</label>
+          <label style={styles.label}>Are you currently taking regular medicines or receiving ongoing treatment? <span style={{color: 'red'}}>*</span></label>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
               <input type="radio" name="medicines" value="no" checked={takingMeds === 'no'} onChange={() => setTakingMeds('no')} /> No
@@ -42,13 +48,13 @@ export default function Step3Health({ nextStep, prevStep }) {
             </label>
           </div>
           {takingMeds === 'yes' && (
-            <input type="text" style={{ ...styles.input, marginTop: '8px' }} required />
+            <input type="text" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details about medicines" required />
           )}
         </div>
 
         {/* Q16 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Do you have any special food / dietary requirements?</label>
+          <label style={styles.label}>Do you have any special food / dietary requirements? <span style={{color: 'red'}}>*</span></label>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
               <input type="radio" name="diet" value="no" checked={specialFood === 'no'} onChange={() => setSpecialFood('no')} /> No
@@ -58,13 +64,13 @@ export default function Step3Health({ nextStep, prevStep }) {
             </label>
           </div>
           {specialFood === 'yes' && (
-            <input type="text" style={{ ...styles.input, marginTop: '8px' }} required />
+            <input type="text" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide dietary requirements" required />
           )}
         </div>
 
         {/* Q17 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Is there anything about your physical or mental well-being that the Gurukulam should know for your safety?</label>
+          <label style={styles.label}>Is there anything about your physical or mental well-being that the Gurukulam should know for your safety? <span style={{color: 'red'}}>*</span></label>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
               <input type="radio" name="wellbeing" value="no" checked={wellbeingInfo === 'no'} onChange={() => setWellbeingInfo('no')} /> No
@@ -74,7 +80,7 @@ export default function Step3Health({ nextStep, prevStep }) {
             </label>
           </div>
           {wellbeingInfo === 'yes' && (
-            <input type="text" style={{ ...styles.input, marginTop: '8px' }} required />
+            <input type="text" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details about your well-being" required />
           )}
         </div>
 
@@ -102,9 +108,43 @@ export default function Step3Health({ nextStep, prevStep }) {
 const styles = {
   header: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     marginBottom: '30px',
+  },
+  banner: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#1976d2',
+    padding: '20px',
+    borderRadius: '8px',
+    marginBottom: '30px',
+    gap: '20px',
+    color: 'white',
+  },
+  bannerIconBox: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    padding: '12px',
+    borderRadius: '12px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bannerTextContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  bannerTitle: {
+    fontSize: '24px',
+    fontWeight: 'bold',
+    margin: 0,
+    color: 'white',
+  },
+  bannerSubtitle: {
+    fontSize: '14px',
+    margin: '4px 0 0 0',
+    opacity: 0.9,
+    fontStyle: 'italic',
   },
   title: {
     fontSize: '28px',
@@ -122,20 +162,22 @@ const styles = {
   },
   label: {
     fontSize: '14px',
-    fontWeight: '500',
+    fontWeight: '600',
     color: 'var(--primary-dark)',
     lineHeight: '1.4',
   },
   input: {
-    padding: '10px 0',
-    border: 'none',
-    borderBottom: '1px solid #999',
-    backgroundColor: 'transparent',
+    padding: '20px 24px',
+    height: '60px',
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    backgroundColor: 'white',
     fontSize: '16px',
     fontFamily: 'inherit',
     color: 'var(--text-main)',
     outline: 'none',
     width: '100%',
+    transition: 'border-color 0.3s ease',
   },
   radioGroup: {
     display: 'flex',

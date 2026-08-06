@@ -1,4 +1,4 @@
-import { ArrowLeft, CheckCircle, ShieldAlert } from 'lucide-react';
+import { ArrowLeft, CheckCircle, ShieldAlert, CheckSquare } from 'lucide-react';
 
 export default function Step6Declaration({ prevStep }) {
   const handleSubmit = (e) => {
@@ -8,8 +8,14 @@ export default function Step6Declaration({ prevStep }) {
 
   return (
     <div className="animate-fade-in">
-      <div style={styles.header}>
-        <h2 style={styles.title}>Important Declaration</h2>
+      <div style={styles.banner} className="section-banner">
+        <div style={styles.bannerIconBox}>
+          <CheckSquare size={24} color="#1976d2" />
+        </div>
+        <div style={styles.bannerTextContainer}>
+          <h2 style={styles.bannerTitle}>Important Declaration</h2>
+          <p style={styles.bannerSubtitle}>Section 6 — Acknowledgment &amp; Submission</p>
+        </div>
       </div>
 
       <div style={styles.declarationBox}>
@@ -28,25 +34,25 @@ export default function Step6Declaration({ prevStep }) {
       <div style={styles.form}>
         <div style={styles.row}>
           <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <label style={styles.label}>Applicant Name</label>
-            <input type="text" style={styles.input} required />
+            <label style={styles.label}>Applicant Name <span style={{color: 'red'}}>*</span></label>
+            <input type="text" style={styles.input} placeholder="Enter your full name" required />
           </div>
         </div>
         
         <div style={styles.row}>
           <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <label style={styles.label}>Signature</label>
-            <input type="text" style={styles.input} required />
+            <label style={styles.label}>Signature <span style={{color: 'red'}}>*</span></label>
+            <input type="text" style={styles.input} placeholder="Type your full name as signature" required />
           </div>
           <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <label style={styles.label}>Date</label>
+            <label style={styles.label}>Date <span style={{color: 'red'}}>*</span></label>
             <input type="date" style={styles.input} required />
           </div>
         </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Place</label>
-          <input type="text" style={styles.input} required />
+          <label style={styles.label}>Place <span style={{color: 'red'}}>*</span></label>
+          <input type="text" style={styles.input} placeholder="Enter your city/town" required />
         </div>
 
         {/* Office Use Section */}
@@ -87,9 +93,43 @@ export default function Step6Declaration({ prevStep }) {
 const styles = {
   header: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: '20px',
+    marginBottom: '30px',
+  },
+  banner: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#1976d2',
+    padding: '20px',
+    borderRadius: '8px',
+    marginBottom: '30px',
+    gap: '20px',
+    color: 'white',
+  },
+  bannerIconBox: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    padding: '12px',
+    borderRadius: '12px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bannerTextContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  bannerTitle: {
+    fontSize: '24px',
+    fontWeight: 'bold',
+    margin: 0,
+    color: 'white',
+  },
+  bannerSubtitle: {
+    fontSize: '14px',
+    margin: '4px 0 0 0',
+    opacity: 0.9,
+    fontStyle: 'italic',
   },
   title: {
     fontSize: '28px',
@@ -122,7 +162,7 @@ const styles = {
   form: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '20px',
+    gap: '24px',
   },
   row: {
     display: 'flex',
@@ -135,19 +175,21 @@ const styles = {
   },
   label: {
     fontSize: '14px',
-    fontWeight: '500',
+    fontWeight: '600',
     color: 'var(--primary-dark)',
   },
   input: {
-    padding: '10px 0',
-    border: 'none',
-    borderBottom: '1px solid #999',
-    backgroundColor: 'transparent',
+    padding: '20px 24px',
+    height: '60px',
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    backgroundColor: 'white',
     fontSize: '16px',
     fontFamily: 'inherit',
     color: 'var(--text-main)',
     outline: 'none',
     width: '100%',
+    transition: 'border-color 0.3s ease',
   },
   officeUse: {
     marginTop: '30px',

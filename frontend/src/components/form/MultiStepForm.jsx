@@ -11,7 +11,7 @@ import Step5Conduct from './Step5Conduct';
 export default function MultiStepForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const totalSteps = 2;
+  const totalSteps = 5;
   const navigate = useNavigate();
 
   const nextStep = () => {
@@ -30,7 +30,7 @@ export default function MultiStepForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (currentStep === 1) {
+    if (currentStep < totalSteps) {
       nextStep();
     } else {
       setIsSubmitted(true);
@@ -58,68 +58,122 @@ export default function MultiStepForm() {
   }
 
   return (
-    <div style={styles.container} className="responsive-form-card">
+    <div style={styles.wrapper}>
+      <div style={styles.headerSection}>
+        <h1 style={styles.mainTitle}>சிசு பால கர்ப்ப விருத்தி</h1>
+        <h2 style={styles.subTitle}>Deep Couples Study Application</h2>
+        <div style={styles.badge}>
+          <span style={styles.sparkle}>✨</span> SPIRITUAL JOURNEY APPROACH
+        </div>
+      </div>
+
       <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
       
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
-        
-        {currentStep === 1 && (
-          <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
+      <div style={styles.card} className="responsive-form-card">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '60px', minHeight: '800px', justifyContent: 'space-between' }}>
+          <div>
+          
+          <div className="animate-fade-in" style={{ display: currentStep === 1 ? 'flex' : 'none', flexDirection: 'column', gap: '60px' }}>
             <Step1Personal />
+          </div>
+
+          <div className="animate-fade-in" style={{ display: currentStep === 2 ? 'flex' : 'none', flexDirection: 'column', gap: '60px' }}>
             <Step2Emergency />
+          </div>
+
+          <div className="animate-fade-in" style={{ display: currentStep === 3 ? 'flex' : 'none', flexDirection: 'column', gap: '60px' }}>
             <Step3Health />
           </div>
-        )}
 
-        {currentStep === 2 && (
-          <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
+          <div className="animate-fade-in" style={{ display: currentStep === 4 ? 'flex' : 'none', flexDirection: 'column', gap: '60px' }}>
             <Step4Calling />
+          </div>
+
+          <div className="animate-fade-in" style={{ display: currentStep === 5 ? 'flex' : 'none', flexDirection: 'column', gap: '60px' }}>
             <Step5Conduct />
           </div>
-        )}
+          </div>
 
-        <div style={styles.actions} className="responsive-actions">
-          <button 
-            type="button" 
-            className="btn btn-outline" 
-            onClick={prevStep}
-            disabled={currentStep === 1}
-            style={{ opacity: currentStep === 1 ? 0 : 1 }}
-          >
-            <ArrowLeft size={16} style={{ marginRight: '8px' }} /> Previous Page
-          </button>
-          
-          {currentStep < totalSteps ? (
-            <button type="submit" className="btn btn-primary">
-              Next Page <ArrowRight size={16} style={{ marginLeft: '8px' }} />
+          <div style={styles.actions} className="responsive-actions">
+            <button 
+              type="button" 
+              className="btn btn-outline" 
+              onClick={prevStep}
+              disabled={currentStep === 1}
+              style={{ opacity: currentStep === 1 ? 0 : 1 }}
+            >
+              <ArrowLeft size={16} style={{ marginRight: '8px' }} /> Previous Page
             </button>
-          ) : (
-            <button type="submit" className="btn btn-primary">
-              Submit Application <CheckCircle size={16} style={{ marginLeft: '8px' }} />
-            </button>
-          )}
+            
+            {currentStep < totalSteps ? (
+              <button type="button" className="btn btn-primary" onClick={nextStep}>
+                Next Page <ArrowRight size={16} style={{ marginLeft: '8px' }} />
+              </button>
+            ) : (
+              <button type="button" className="btn btn-primary" onClick={handleSubmit}>
+                Submit Application <CheckCircle size={16} style={{ marginLeft: '8px' }} />
+              </button>
+            )}
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
 
 const styles = {
-  container: {
+  wrapper: {
+    width: '100%',
+    maxWidth: '900px', // Reduced width as requested
+    margin: '0 auto',
+    padding: '0 20px',
+  },
+  card: {
     backgroundColor: 'white',
     padding: '40px 50px',
     borderRadius: '8px',
     border: '1px solid #dadce0',
-    borderTop: '8px solid var(--primary-color)',
     boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
     width: '100%',
-    maxWidth: '800px',
-    margin: '0 auto',
   },
   actions: {
     display: 'flex',
     justifyContent: 'space-between',
     marginTop: '20px',
     paddingTop: '30px',
+  },
+  headerSection: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginBottom: '40px',
+    textAlign: 'center',
+  },
+  mainTitle: {
+    fontSize: '48px',
+    color: '#6e1d15', // Dark maroon color from the image
+    margin: '0 0 16px 0',
+    fontWeight: 'normal',
+  },
+  subTitle: {
+    fontSize: '28px',
+    color: '#b06d15', // Golden brown color
+    margin: '0 0 20px 0',
+    fontStyle: 'italic',
+    fontFamily: 'var(--font-serif)',
+    fontWeight: 'normal',
+  },
+  badge: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    fontSize: '14px',
+    letterSpacing: '2px',
+    color: '#666',
+    textTransform: 'uppercase',
+  },
+  sparkle: {
+    color: '#f59e0b',
+    fontSize: '16px',
   }
 };
