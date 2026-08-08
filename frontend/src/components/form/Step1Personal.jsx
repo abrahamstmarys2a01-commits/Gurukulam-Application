@@ -41,43 +41,41 @@ export default function Step1Personal({ nextStep, prevStep, currentStep }) {
           <input type="text" name="fullName" style={styles.input} placeholder="Enter your full name" required />
         </div>
 
-        <div style={styles.row}>
-          <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <div style={styles.labelContainer}>
-              <div className="label-tamil">பிறந்த தேதி: <span style={{ color: 'red' }}>*</span></div>
-              <div className="label-english">Date of Birth: <span style={{ color: 'red' }}>*</span></div>
-            </div>
-            <input type="date" name="dateOfBirth" style={styles.input} required onChange={handleDateChange} />
+        <div style={styles.inputGroup}>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">பிறந்த தேதி: <span style={{ color: 'red' }}>*</span></div>
+            <div className="label-english">Date of Birth: <span style={{ color: 'red' }}>*</span></div>
           </div>
-          <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <div style={styles.labelContainer}>
-              <div className="label-tamil">வயது: <span style={{ color: 'red' }}>*</span></div>
-              <div className="label-english">Age: <span style={{ color: 'red' }}>*</span></div>
-            </div>
-            <input type="number" name="age" style={styles.input} placeholder="Enter your age" required value={age} onChange={(e) => setAge(e.target.value)} />
-          </div>
+          <input type="date" name="dateOfBirth" style={styles.input} required onChange={handleDateChange} />
         </div>
 
-        <div style={styles.row}>
-          <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <div style={styles.labelContainer}>
-              <div className="label-tamil">பாலினம்: <span style={{ color: 'red' }}>*</span></div>
-              <div className="label-english">Gender: <span style={{ color: 'red' }}>*</span></div>
-            </div>
-            <select name="gender" style={styles.input} required>
-              <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
+        <div style={styles.inputGroup}>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">வயது: <span style={{ color: 'red' }}>*</span></div>
+            <div className="label-english">Age: <span style={{ color: 'red' }}>*</span></div>
           </div>
-          <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <div style={styles.labelContainer}>
-              <div className="label-tamil">தேசியம்: <span style={{ color: 'red' }}>*</span></div>
-              <div className="label-english">Nationality: <span style={{ color: 'red' }}>*</span></div>
-            </div>
-            <input type="text" name="nationality" style={styles.input} placeholder="Enter your nationality" required />
+          <input type="number" name="age" style={styles.input} placeholder="Enter your age" required value={age} onChange={(e) => setAge(e.target.value)} />
+        </div>
+
+        <div style={styles.inputGroup}>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">பாலினம்: <span style={{ color: 'red' }}>*</span></div>
+            <div className="label-english">Gender: <span style={{ color: 'red' }}>*</span></div>
           </div>
+          <select name="gender" style={styles.input} required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div style={styles.inputGroup}>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">தேசியம்: <span style={{ color: 'red' }}>*</span></div>
+            <div className="label-english">Nationality: <span style={{ color: 'red' }}>*</span></div>
+          </div>
+          <input type="text" name="nationality" style={styles.input} placeholder="Enter your nationality" required />
         </div>
 
         <div style={styles.inputGroup}>

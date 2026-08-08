@@ -101,7 +101,7 @@ export default function MultiStepForm() {
       <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
       
       {error && (
-        <div style={{ backgroundColor: '#fee2e2', color: '#b91c1c', padding: '15px', borderRadius: '8px', marginBottom: '20px', textAlign: 'center' }}>
+        <div style={{ backgroundColor: '#fee2e2', color: '#b91c1c', padding: '15px', borderRadius: '0', marginBottom: '20px', textAlign: 'center' }}>
           {error}
         </div>
       )}
@@ -168,7 +168,7 @@ const styles = {
   card: {
     backgroundColor: 'white',
     padding: '40px 50px',
-    borderRadius: '8px',
+    borderRadius: '0',
     border: '1px solid #dadce0',
     boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
     width: '100%',

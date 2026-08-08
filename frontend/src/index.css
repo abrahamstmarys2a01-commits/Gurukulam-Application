@@ -65,7 +65,7 @@ button {
   align-items: center;
   justify-content: center;
   padding: 12px 28px;
-  border-radius: 30px;
+  border-radius: 0;
   font-weight: 500;
   transition: all 0.3s ease;
   border: none;
@@ -163,8 +163,6 @@ button {
   padding-left: 50px !important;
   padding-right: 50px !important;
   border-radius: 0 !important;
-  border-top-left-radius: 8px !important;
-  border-top-right-radius: 8px !important;
 }
 
 @media (max-width: 768px) {
@@ -188,4 +186,9 @@ button {
   font-weight: 400;
   color: var(--text-muted);
   margin-bottom: 8px;
+}
+
+/* Sharp corners for form boxes */
+input, select, textarea {
+  border-radius: 0 !important;
 }
