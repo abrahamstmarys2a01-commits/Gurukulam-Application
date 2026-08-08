@@ -8,7 +8,7 @@ export default function Step2Emergency({ nextStep, prevStep }) {
     <div className="animate-fade-in">
       <div style={styles.banner} className="section-banner">
         <div style={styles.bannerIconBox}>
-          <Phone size={24} color="#1976d2" />
+          <Phone size={24} color="var(--primary-color)" />
         </div>
         <div style={styles.bannerTextContainer}>
           <h2 style={styles.bannerTitle}>அவசரகால தொடர்பு மற்றும் குடும்ப பொறுப்புகள்</h2>
@@ -22,7 +22,7 @@ export default function Step2Emergency({ nextStep, prevStep }) {
             <div className="label-tamil">அவசரகால தொடர்பு பெயர்: <span style={{color: 'red'}}>*</span></div>
             <div className="label-english">Emergency Contact Name: <span style={{color: 'red'}}>*</span></div>
           </div>
-          <input type="text" style={styles.input} placeholder="Enter emergency contact name" required />
+          <input type="text" name="emergencyContactName" style={styles.input} placeholder="Enter emergency contact name" required />
         </div>
 
         <div style={styles.inputGroup}>
@@ -30,7 +30,7 @@ export default function Step2Emergency({ nextStep, prevStep }) {
             <div className="label-tamil">உறவுமுறை: <span style={{color: 'red'}}>*</span></div>
             <div className="label-english">Relationship: <span style={{color: 'red'}}>*</span></div>
           </div>
-          <input type="text" style={styles.input} placeholder="Enter relationship (e.g., Father, Spouse)" required />
+          <input type="text" name="emergencyContactRelationship" style={styles.input} placeholder="Enter relationship (e.g., Father, Spouse)" required />
         </div>
         
         <div style={styles.inputGroup}>
@@ -38,7 +38,7 @@ export default function Step2Emergency({ nextStep, prevStep }) {
             <div className="label-tamil">தொலைபேசி எண்: <span style={{color: 'red'}}>*</span></div>
             <div className="label-english">Phone Number: <span style={{color: 'red'}}>*</span></div>
           </div>
-          <input type="tel" style={styles.input} placeholder="Enter phone number" required />
+          <input type="tel" name="emergencyContactPhone" style={styles.input} placeholder="Enter phone number" required />
         </div>
 
         <div style={styles.inputGroup}>
@@ -46,7 +46,7 @@ export default function Step2Emergency({ nextStep, prevStep }) {
             <div className="label-tamil">பெற்றோர் / துணைவர் / குடும்ப தொடர்பு: <span style={{color: 'red'}}>*</span></div>
             <div className="label-english">Parent / Spouse / Family Contact: <span style={{color: 'red'}}>*</span></div>
           </div>
-          <input type="text" style={styles.input} placeholder="Enter parent/spouse contact details" required />
+          <input type="text" name="parentSpouseContact" style={styles.input} placeholder="Enter parent/spouse contact details" required />
         </div>
 
         <div style={styles.inputGroup}>
@@ -56,14 +56,14 @@ export default function Step2Emergency({ nextStep, prevStep }) {
           </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="dependents" value="yes" checked={hasDependents === 'yes'} onChange={() => setHasDependents('yes')} /> ஆம் / Yes
+              <input type="radio" name="hasDependents" value="yes" checked={hasDependents === 'yes'} onChange={() => setHasDependents('yes')} /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="dependents" value="no" checked={hasDependents === 'no'} onChange={() => setHasDependents('no')} /> இல்லை / No
+              <input type="radio" name="hasDependents" value="no" checked={hasDependents === 'no'} onChange={() => setHasDependents('no')} /> இல்லை / No
             </label>
           </div>
           {hasDependents === 'yes' && (
-            <input type="text" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details about dependents" required />
+            <input type="text" name="dependentsDetails" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details about dependents" required />
           )}
         </div>
 
@@ -99,12 +99,13 @@ const styles = {
   banner: {
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: '#1976d2',
+    backgroundColor: 'var(--primary-color)',
     padding: '20px',
     borderRadius: '8px',
     marginBottom: '30px',
     gap: '20px',
     color: 'white',
+    boxShadow: '0 4px 15px rgba(211, 84, 0, 0.15)',
   },
   bannerIconBox: {
     backgroundColor: 'rgba(255, 255, 255, 0.2)',

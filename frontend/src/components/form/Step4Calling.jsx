@@ -8,7 +8,7 @@ export default function Step4Calling({ nextStep, prevStep }) {
     <div className="animate-fade-in">
       <div style={styles.banner} className="section-banner">
         <div style={styles.bannerIconBox}>
-          <BookOpen size={24} color="#1976d2" />
+          <BookOpen size={24} color="var(--primary-color)" />
         </div>
         <div style={styles.bannerTextContainer}>
           <h2 style={styles.bannerTitle}>ஆன்மீக அழைப்பு மற்றும் ஒழுக்கம்</h2>
@@ -24,7 +24,7 @@ export default function Step4Calling({ nextStep, prevStep }) {
             <div className="label-english">Why do you wish to become a Sadhu and live at the Gurukulam? <span style={{color: 'red'}}>*</span></div>
           </div>
           <textarea 
- 
+            name="whyJoin"
             style={styles.textarea} 
             placeholder="Please describe your spiritual calling and reasons for joining..."
             required 
@@ -40,14 +40,14 @@ export default function Step4Calling({ nextStep, prevStep }) {
           </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="livedInAshram" value="yes" checked={livedInAshram === 'yes'} onChange={() => setLivedInAshram('yes')} /> ஆம் / Yes
+              <input type="radio" name="previousAshram" value="yes" checked={livedInAshram === 'yes'} onChange={() => setLivedInAshram('yes')} /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="livedInAshram" value="no" checked={livedInAshram === 'no'} onChange={() => setLivedInAshram('no')} /> இல்லை / No
+              <input type="radio" name="previousAshram" value="no" checked={livedInAshram === 'no'} onChange={() => setLivedInAshram('no')} /> இல்லை / No
             </label>
           </div>
           {livedInAshram === 'yes' && (
-            <input type="text" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details of previous ashram experience" required />
+            <input type="text" name="previousAshramDetails" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details of previous ashram experience" required />
           )}
         </div>
 
@@ -59,10 +59,10 @@ export default function Step4Calling({ nextStep, prevStep }) {
           </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="discipline" value="yes" required /> ஆம் / Yes
+              <input type="radio" name="dailyPractice" value="yes" required /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="discipline" value="no" required /> இல்லை / No
+              <input type="radio" name="dailyPractice" value="no" required /> இல்லை / No
             </label>
           </div>
         </div>
@@ -75,10 +75,10 @@ export default function Step4Calling({ nextStep, prevStep }) {
           </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="respect" value="yes" required /> ஆம் / Yes
+              <input type="radio" name="longTermCommitment" value="yes" required /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="respect" value="no" required /> இல்லை / No
+              <input type="radio" name="longTermCommitment" value="no" required /> இல்லை / No
             </label>
           </div>
 
@@ -98,12 +98,13 @@ const styles = {
   banner: {
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: '#1976d2',
+    backgroundColor: 'var(--primary-color)',
     padding: '20px',
     borderRadius: '8px',
     marginBottom: '30px',
     gap: '20px',
     color: 'white',
+    boxShadow: '0 4px 15px rgba(211, 84, 0, 0.15)',
   },
   bannerIconBox: {
     backgroundColor: 'rgba(255, 255, 255, 0.2)',

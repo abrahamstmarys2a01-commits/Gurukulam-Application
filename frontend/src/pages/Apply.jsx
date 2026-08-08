@@ -7,12 +7,14 @@ import Footer from '../components/layout/Footer';
 export default function Apply() {
 
   return (
-    <div style={styles.page} className="google-form-theme animate-fade-in">
+    <div style={styles.page} className="animate-fade-in fade-in-slow">
       <header style={styles.header}>
         <div style={styles.logoGroup}>
-          <img src="/logo.jpg" alt="Garbha Viruthi Logo" style={styles.headerLogo} />
+          {/* <img src="/logo.jpg" alt="Garbha Viruthi Logo" style={styles.headerLogo} /> */}
           <div style={styles.titleContainer}>
-            <h1 style={styles.headerTitleStyled}>Garbha Viruthi</h1>
+            <h1 style={styles.headerTitleStyled}>
+              SHREE DATTA EASANAMMA GURUKULAM
+            </h1>
             <div style={styles.titleDecoration}>
               <div style={styles.goldLineLeft}></div>
               <div style={styles.lotusWrapper}>
@@ -28,9 +30,6 @@ export default function Apply() {
             </div>
           </div>
         </div>
-        <Link to="/" style={{ color: 'white', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '500' }}>
-          <Home size={18} /> Home
-        </Link>
       </header>
       <main style={styles.main}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
@@ -83,7 +82,7 @@ const styles = {
   },
   headerTitleStyled: {
     fontFamily: 'var(--font-serif)',
-    fontSize: '26px',
+    fontSize: '18px',
     fontWeight: '600',
     color: '#ffffff', // White color for blue background
     margin: 0,

@@ -11,7 +11,7 @@ export default function Step3Health({ nextStep, prevStep }) {
     <div className="animate-fade-in">
       <div style={styles.banner} className="section-banner">
         <div style={styles.bannerIconBox}>
-          <Heart size={24} color="#1976d2" />
+          <Heart size={24} color="var(--primary-color)" />
         </div>
         <div style={styles.bannerTextContainer}>
           <h2 style={styles.bannerTitle}>ஆரோக்கியம் மற்றும் பாதுகாப்பு</h2>
@@ -35,7 +35,7 @@ export default function Step3Health({ nextStep, prevStep }) {
             </label>
           </div>
           {hasMedicalCondition === 'yes' && (
-            <input type="text" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details" required />
+            <input type="text" name="medicalConditionDetails" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details" required />
           )}
         </div>
 
@@ -47,14 +47,14 @@ export default function Step3Health({ nextStep, prevStep }) {
           </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="medicines" value="yes" checked={takingMeds === 'yes'} onChange={() => setTakingMeds('yes')} /> ஆம் / Yes
+              <input type="radio" name="takingMedicines" value="yes" checked={takingMeds === 'yes'} onChange={() => setTakingMeds('yes')} /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="medicines" value="no" checked={takingMeds === 'no'} onChange={() => setTakingMeds('no')} /> இல்லை / No
+              <input type="radio" name="takingMedicines" value="no" checked={takingMeds === 'no'} onChange={() => setTakingMeds('no')} /> இல்லை / No
             </label>
           </div>
           {takingMeds === 'yes' && (
-            <input type="text" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details about medicines" required />
+            <input type="text" name="takingMedicinesDetails" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details about medicines" required />
           )}
         </div>
 
@@ -66,14 +66,14 @@ export default function Step3Health({ nextStep, prevStep }) {
           </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="diet" value="yes" checked={specialFood === 'yes'} onChange={() => setSpecialFood('yes')} /> ஆம் / Yes
+              <input type="radio" name="specialFood" value="yes" checked={specialFood === 'yes'} onChange={() => setSpecialFood('yes')} /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="diet" value="no" checked={specialFood === 'no'} onChange={() => setSpecialFood('no')} /> இல்லை / No
+              <input type="radio" name="specialFood" value="no" checked={specialFood === 'no'} onChange={() => setSpecialFood('no')} /> இல்லை / No
             </label>
           </div>
           {specialFood === 'yes' && (
-            <input type="text" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide dietary requirements" required />
+            <input type="text" name="specialFoodDetails" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide dietary requirements" required />
           )}
         </div>
 
@@ -85,14 +85,14 @@ export default function Step3Health({ nextStep, prevStep }) {
           </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="wellbeing" value="yes" checked={wellbeingInfo === 'yes'} onChange={() => setWellbeingInfo('yes')} /> ஆம் / Yes
+              <input type="radio" name="mentalHealth" value="yes" checked={wellbeingInfo === 'yes'} onChange={() => setWellbeingInfo('yes')} /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="wellbeing" value="no" checked={wellbeingInfo === 'no'} onChange={() => setWellbeingInfo('no')} /> இல்லை / No
+              <input type="radio" name="mentalHealth" value="no" checked={wellbeingInfo === 'no'} onChange={() => setWellbeingInfo('no')} /> இல்லை / No
             </label>
           </div>
           {wellbeingInfo === 'yes' && (
-            <input type="text" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details about your well-being" required />
+            <input type="text" name="mentalHealthDetails" style={{ ...styles.input, marginTop: '8px' }} placeholder="Please provide details about your well-being" required />
           )}
         </div>
 
@@ -102,7 +102,7 @@ export default function Step3Health({ nextStep, prevStep }) {
             <div className="label-tamil">இரத்த வகை (தெரிந்திருந்தால்)</div>
             <div className="label-english">Blood Group (if known)</div>
           </div>
-          <select style={styles.input}>
+          <select name="physicalFitness" style={styles.input} required>
             <option value="">Select Blood Group</option>
             <option value="A+">A+</option>
             <option value="A-">A-</option>
@@ -130,12 +130,13 @@ const styles = {
   banner: {
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: '#1976d2',
+    backgroundColor: 'var(--primary-color)',
     padding: '20px',
     borderRadius: '8px',
     marginBottom: '30px',
     gap: '20px',
     color: 'white',
+    boxShadow: '0 4px 15px rgba(211, 84, 0, 0.15)',
   },
   bannerIconBox: {
     backgroundColor: 'rgba(255, 255, 255, 0.2)',

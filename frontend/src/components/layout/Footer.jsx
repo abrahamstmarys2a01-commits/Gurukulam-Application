@@ -5,11 +5,11 @@ export default function Footer() {
     <footer style={styles.footer}>
       <div className="container" style={styles.container}>
         <div style={styles.topSection}>
-          <h2 style={styles.title}>Sisu Bala · Garbha Viruthi</h2>
+          <h2 style={styles.title}>SHREE DATTA EASANAMMA GURUKULAM</h2>
           <p style={styles.subtitle}>Easanamma Gurukulam · Rooted in Siddhar Lineage · Guided by Grace</p>
         </div>
-        
-        <div style={styles.links}>
+
+        {/* <div style={styles.links}>
           <a href="#" style={styles.link}>The Need</a>
           <a href="#" style={styles.link}>The Path</a>
           <a href="#" style={styles.link}>The Stages</a>
@@ -17,11 +17,11 @@ export default function Footer() {
           <a href="#" style={styles.link}>For Couples</a>
           <a href="#" style={styles.link}>FAQ</a>
         </div>
-        
+         */}
         <div style={styles.bottomSection}>
-          <p style={styles.motto}>Rooted in Siddhar lineage · Guided by Grace · Held in devotion</p>
+          {/* <p style={styles.motto}>Rooted in Siddhar lineage · Guided by Grace · Held in devotion</p> */}
           <p style={styles.copyright}>
-            © 2026 Easanamma Gurukulam · Sisu Bala Garbha Viruthi · All rights reserved
+            © 2026 Easanamma Gurukulam · SHREE DATTA EASANAMMA GURUKULAM · All rights reserved
           </p>
         </div>
       </div>
@@ -31,7 +31,7 @@ export default function Footer() {
 
 const styles = {
   footer: {
-    backgroundColor: '#0a0a0a',
+    backgroundColor: 'var(--secondary-color)',
     padding: '60px 0 40px',
     textAlign: 'center',
     color: '#ffffff',

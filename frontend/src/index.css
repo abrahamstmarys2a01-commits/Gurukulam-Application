@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap');
 
 :root {
-  --primary-color: #1976d2;
-  --primary-dark: #1565c0;
-  --secondary-color: #5f6368;
-  --background-light: #fdfaf6;
-  --background-alt: #f5f0e6;
-  --text-main: #333333;
+  /* Spiritual Design Palette */
+  --primary-color: #D35400; /* Saffron / Marigold */
+  --primary-dark: #A04000;
+  --secondary-color: #2C3E50; /* Deep Sacred Blue */
+  --accent-gold: #D4AF37;
+  --background-light: #FAF9F6; /* Parchment */
+  --background-alt: #FDFBF7;
+  --text-main: #2D2D2D; /* Deep charcoal */
   --text-muted: #666666;
-  --border-color: #e0d8c8;
+  --border-color: #E5E0D8; /* Soft earth border */
 
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
@@ -100,6 +102,10 @@ button {
   animation: fadeIn 0.8s ease-out forwards;
 }
 
+.fade-in-slow {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
 @keyframes zoomInCenter {
   0% { transform: scale(0.3); opacity: 0; }
   60% { transform: scale(1.05); opacity: 1; }
@@ -148,15 +154,6 @@ button {
   }
 }
 
-/* Google Form Theme Override */
-.google-form-theme {
-  --primary-color: #1a73e8;
-  --primary-dark: #174ea6;
-  --secondary-color: #5f6368;
-  --background-light: #f0f4f9;
-  --text-main: #202124;
-  --font-serif: var(--font-sans);
-}
 
 /* Section Banners */
 .section-banner {

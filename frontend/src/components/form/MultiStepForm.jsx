@@ -11,6 +11,8 @@ import Step5Conduct from './Step5Conduct';
 export default function MultiStepForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const totalSteps = 5;
   const navigate = useNavigate();
 
@@ -28,16 +30,48 @@ export default function MultiStepForm() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (currentStep < totalSteps) {
       nextStep();
-    } else {
-      setIsSubmitted(true);
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setError('');
+    
+    try {
+      const formElement = e.target;
+      const formData = new FormData(formElement);
+      
+      if (!formData.get('declarationSigned')) {
+        setError('Please check the declaration box to agree to the terms and conditions.');
+        return;
+      }
+      
+      const response = await fetch('http://localhost:5001/api/applications', {
+        method: 'POST',
+        body: formData, // fetch automatically sets the correct multipart/form-data boundary
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
+      } else {
+        setError(data.error ? `Validation Error: ${data.error}` : (data.message || 'Something went wrong. Please try again.'));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } catch (err) {
+      console.error(err);
+      setError('Network error. Please make sure the backend is running.');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(() => {
-        navigate('/');
-      }, 3000);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -60,17 +94,20 @@ export default function MultiStepForm() {
   return (
     <div style={styles.wrapper}>
       <div style={styles.headerSection}>
-        <h1 style={styles.mainTitle}>சிசு பால கர்ப்ப விருத்தி</h1>
-        <h2 style={styles.subTitle}>Deep Couples Study Application</h2>
-        <div style={styles.badge}>
-          <span style={styles.sparkle}>✨</span> SPIRITUAL JOURNEY APPROACH
-        </div>
+        <h2 style={styles.mainTitle}>SADHU SPIRITUAL LIFE RESIDENTIAL APPLICATION</h2>
+        <p style={styles.subTitle}>For sincere seekers wishing to live a life of surrender, discipline, simplicity, spiritual practice and selfless seva.</p>
       </div>
 
       <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
       
+      {error && (
+        <div style={{ backgroundColor: '#fee2e2', color: '#b91c1c', padding: '15px', borderRadius: '8px', marginBottom: '20px', textAlign: 'center' }}>
+          {error}
+        </div>
+      )}
+
       <div style={styles.card} className="responsive-form-card">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '60px', minHeight: '800px', justifyContent: 'space-between' }}>
+        <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '60px', minHeight: '800px', justifyContent: 'space-between' }}>
           <div>
           
           <div className="animate-fade-in" style={{ display: currentStep === 1 ? 'flex' : 'none', flexDirection: 'column', gap: '60px' }}>
@@ -99,7 +136,7 @@ export default function MultiStepForm() {
               type="button" 
               className="btn btn-outline" 
               onClick={prevStep}
-              disabled={currentStep === 1}
+              disabled={currentStep === 1 || isSubmitting}
               style={{ opacity: currentStep === 1 ? 0 : 1 }}
             >
               <ArrowLeft size={16} style={{ marginRight: '8px' }} /> Previous Page
@@ -110,12 +147,12 @@ export default function MultiStepForm() {
                 Next Page <ArrowRight size={16} style={{ marginLeft: '8px' }} />
               </button>
             ) : (
-              <button type="button" className="btn btn-primary" onClick={handleSubmit}>
-                Submit Application <CheckCircle size={16} style={{ marginLeft: '8px' }} />
+              <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+                {isSubmitting ? 'Submitting...' : 'Submit Application'} <CheckCircle size={16} style={{ marginLeft: '8px' }} />
               </button>
             )}
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
@@ -150,30 +187,16 @@ const styles = {
     textAlign: 'center',
   },
   mainTitle: {
-    fontSize: '48px',
-    color: 'var(--primary-dark)', // Using theme variable
+    fontSize: '28px',
+    color: 'var(--primary-dark)',
     margin: '0 0 16px 0',
-    fontWeight: 'normal',
+    fontWeight: 'bold',
   },
   subTitle: {
-    fontSize: '28px',
-    color: 'var(--primary-color)', // Using theme variable
-    margin: '0 0 20px 0',
-    fontStyle: 'italic',
-    fontFamily: 'var(--font-serif)',
-    fontWeight: 'normal',
-  },
-  badge: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    fontSize: '14px',
-    letterSpacing: '2px',
-    color: '#666',
-    textTransform: 'uppercase',
-  },
-  sparkle: {
-    color: '#f59e0b',
     fontSize: '16px',
+    color: '#555',
+    margin: '0',
+    lineHeight: '1.5',
+    maxWidth: '700px',
   }
 };

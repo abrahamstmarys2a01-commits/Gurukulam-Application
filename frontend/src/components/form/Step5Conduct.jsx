@@ -10,7 +10,7 @@ export default function Step5Conduct({ nextStep, prevStep }) {
     <div className="animate-fade-in">
       <div style={styles.banner} className="section-banner">
         <div style={styles.bannerIconBox}>
-          <Shield size={24} color="#1976d2" />
+          <Shield size={24} color="var(--primary-color)" />
         </div>
         <div style={styles.bannerTextContainer}>
           <h2 style={styles.bannerTitle}>பாதுகாப்பு, நடத்தை மற்றும் பொறுப்பு</h2>
@@ -50,7 +50,7 @@ export default function Step5Conduct({ nextStep, prevStep }) {
             <div className="label-english">I understand that Gurukulam life involves ordinary residential, travel, physical, environmental and other risks, and I will take reasonable care of my own safety and follow safety instructions. <span style={{color: 'red'}}>*</span></div>
           </div>
           <label style={styles.checkboxLabel}>
-            <input type="checkbox" required style={styles.checkbox} />
+            <input type="checkbox" name="declarationSigned" value="true" required style={styles.checkbox} />
             நான் புரிந்துகொண்டு ஒப்புக்கொள்கிறேன் / I Understand & Agree
           </label>
 
@@ -70,12 +70,13 @@ const styles = {
   banner: {
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: '#1976d2',
+    backgroundColor: 'var(--primary-color)',
     padding: '20px',
     borderRadius: '8px',
     marginBottom: '30px',
     gap: '20px',
     color: 'white',
+    boxShadow: '0 4px 15px rgba(211, 84, 0, 0.15)',
   },
   bannerIconBox: {
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
