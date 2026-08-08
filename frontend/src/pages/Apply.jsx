@@ -28,6 +28,9 @@ export default function Apply() {
             </div>
           </div>
         </div>
+        <Link to="/" style={{ color: 'white', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '500' }}>
+          <Home size={18} /> Home
+        </Link>
       </header>
       <main style={styles.main}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
@@ -48,10 +51,10 @@ const styles = {
   },
   header: {
     padding: '12px 40px',
-    backgroundColor: 'white',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+    backgroundColor: 'var(--primary-color)',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems: 'center',
     position: 'sticky',
     top: 0,
@@ -82,7 +85,7 @@ const styles = {
     fontFamily: 'var(--font-serif)',
     fontSize: '26px',
     fontWeight: '600',
-    color: '#0e3a1f', // Dark green color
+    color: '#ffffff', // White color for blue background
     margin: 0,
     letterSpacing: '0.5px',
     textAlign: 'center',

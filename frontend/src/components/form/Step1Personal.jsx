@@ -1,19 +1,6 @@
-import { useState } from 'react';
-import { Camera, ArrowRight, User } from 'lucide-react';
+import { ArrowRight, User } from 'lucide-react';
 
 export default function Step1Personal({ nextStep, prevStep, currentStep }) {
-  const [imagePreview, setImagePreview] = useState(null);
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   return (
     <div className="animate-fade-in">
@@ -22,47 +9,102 @@ export default function Step1Personal({ nextStep, prevStep, currentStep }) {
           <User size={24} color="#1976d2" />
         </div>
         <div style={styles.bannerTextContainer}>
-          <h2 style={styles.bannerTitle}>Personal Information</h2>
-          <p style={styles.bannerSubtitle}>Section 1 — Couple Identity & Marital Foundation</p>
-        </div>
-      </div>
-
-      <div style={styles.header}>
-        <div style={styles.photoUpload}>
-          <label style={styles.photoCircle}>
-            <input type="file" style={{ display: 'none' }} accept="image/*" onChange={handleImageChange} />
-            {imagePreview ? (
-              <img src={imagePreview} alt="Preview" style={styles.previewImage} />
-            ) : (
-              <Camera size={24} color="var(--primary-color)" />
-            )}
-          </label>
-          <div style={styles.uploadText}>Upload Image</div>
+          <h2 style={styles.bannerTitle}>தனிப்பட்ட தகவல் (Personal Information)</h2>
+          <p style={styles.bannerSubtitle}>Section A — Personal Information</p>
         </div>
       </div>
 
       <div style={styles.form}>
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Full Name <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">முழுப் பெயர்: <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Full Name: <span style={{color: 'red'}}>*</span></div>
+          </div>
           <input type="text" style={styles.input} placeholder="Enter your full name" required />
         </div>
 
-        <div style={styles.inputGroup}>
-          <label style={styles.label}>Date of Birth <span style={{color: 'red'}}>*</span></label>
-          <div style={styles.inputWrapper}>
+        <div style={styles.row}>
+          <div style={{ ...styles.inputGroup, flex: 1 }}>
+            <div style={styles.labelContainer}>
+              <div className="label-tamil">பிறந்த தேதி: <span style={{color: 'red'}}>*</span></div>
+              <div className="label-english">Date of Birth: <span style={{color: 'red'}}>*</span></div>
+            </div>
             <input type="date" style={styles.input} required />
+          </div>
+          <div style={{ ...styles.inputGroup, flex: 1 }}>
+            <div style={styles.labelContainer}>
+              <div className="label-tamil">வயது: <span style={{color: 'red'}}>*</span></div>
+              <div className="label-english">Age: <span style={{color: 'red'}}>*</span></div>
+            </div>
+            <input type="number" style={styles.input} placeholder="Enter your age" required />
+          </div>
+        </div>
+
+        <div style={styles.row}>
+          <div style={{ ...styles.inputGroup, flex: 1 }}>
+            <div style={styles.labelContainer}>
+              <div className="label-tamil">பாலினம்: <span style={{color: 'red'}}>*</span></div>
+              <div className="label-english">Gender: <span style={{color: 'red'}}>*</span></div>
+            </div>
+            <select style={styles.input} required>
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div style={{ ...styles.inputGroup, flex: 1 }}>
+            <div style={styles.labelContainer}>
+              <div className="label-tamil">தேசியம்: <span style={{color: 'red'}}>*</span></div>
+              <div className="label-english">Nationality: <span style={{color: 'red'}}>*</span></div>
+            </div>
+            <input type="text" style={styles.input} placeholder="Enter your nationality" required />
           </div>
         </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Aadhaar / Passport Number <span style={{color: 'red'}}>*</span></label>
-          <input type="text" style={styles.input} placeholder="Enter Aadhaar or Passport number" required />
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">ஆதார் / பாஸ்போர்ட் / அரசு அடையாள எண்: <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Aadhaar / Passport / Government ID No.: <span style={{color: 'red'}}>*</span></div>
+          </div>
+          <input type="text" style={styles.input} placeholder="Enter your ID number" required />
         </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Current Address <span style={{color: 'red'}}>*</span></label>
-          <input type="text" style={styles.input} placeholder="Enter your full current address" required />
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">மொபைல் / வாட்ஸ்அப்: <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Mobile / WhatsApp: <span style={{color: 'red'}}>*</span></div>
+          </div>
+          <input type="tel" style={styles.input} placeholder="Enter your mobile number" required />
+        </div>
 
+        <div style={styles.inputGroup}>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">சமீபத்திய பாஸ்போர்ட் அளவு புகைப்படம்: <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Recent Passport-Size Photograph: <span style={{color: 'red'}}>*</span></div>
+          </div>
+          <input type="file" style={styles.fileInput} accept="image/*" required />
+        </div>
+
+        <div style={styles.inputGroup}>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">மின்னஞ்சல்:</div>
+            <div className="label-english">Email:</div>
+          </div>
+          <input type="email" style={styles.input} placeholder="Enter your email ID" />
+        </div>
+
+        <div style={styles.inputGroup}>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">நிரந்தர முகவரி: <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Permanent Address: <span style={{color: 'red'}}>*</span></div>
+          </div>
+          <textarea 
+            style={styles.textarea} 
+            placeholder="Enter your permanent address"
+            required 
+            rows={3}
+          ></textarea>
         </div>
       </div>
     </div>
@@ -70,12 +112,6 @@ export default function Step1Personal({ nextStep, prevStep, currentStep }) {
 }
 
 const styles = {
-  header: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: '30px',
-  },
   banner: {
     display: 'flex',
     alignItems: 'center',
@@ -114,37 +150,23 @@ const styles = {
     fontSize: '28px',
     color: 'var(--primary-dark)',
   },
-  photoUpload: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: '8px',
-  },
-  uploadText: {
-    fontSize: '12px',
-    color: 'var(--text-muted)',
-    fontWeight: '500',
-  },
-  photoCircle: {
-    width: '80px',
-    height: '80px',
-    borderRadius: '50%',
-    border: '2px dashed #d0c5b3',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    cursor: 'pointer',
-  },
   form: {
     display: 'flex',
     flexDirection: 'column',
     gap: '24px',
   },
+  row: {
+    display: 'flex',
+    gap: '20px',
+  },
   inputGroup: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '8px',
+    gap: '4px',
+  },
+  labelContainer: {
+    display: 'flex',
+    flexDirection: 'column',
   },
   label: {
     fontSize: '14px',
@@ -174,6 +196,32 @@ const styles = {
     width: '100%',
     transition: 'border-color 0.3s ease',
   },
+  fileInput: {
+    padding: '16px 24px',
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    backgroundColor: 'white',
+    fontSize: '16px',
+    fontFamily: 'inherit',
+    color: 'var(--text-main)',
+    outline: 'none',
+    width: '100%',
+    transition: 'border-color 0.3s ease',
+    cursor: 'pointer',
+  },
+  textarea: {
+    padding: '16px 20px',
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    backgroundColor: 'white',
+    fontSize: '16px',
+    fontFamily: 'inherit',
+    color: 'var(--text-main)',
+    outline: 'none',
+    resize: 'vertical',
+    marginTop: '4px',
+    transition: 'border-color 0.3s ease',
+  },
   line: {
     height: '2px',
     backgroundColor: 'var(--primary-color)',
@@ -183,11 +231,5 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     marginTop: '20px',
-  },
-  previewImage: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    borderRadius: '50%',
   }
 };

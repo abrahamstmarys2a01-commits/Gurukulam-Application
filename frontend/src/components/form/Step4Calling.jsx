@@ -11,7 +11,7 @@ export default function Step4Calling({ nextStep, prevStep }) {
           <BookOpen size={24} color="#1976d2" />
         </div>
         <div style={styles.bannerTextContainer}>
-          <h2 style={styles.bannerTitle}>Spiritual Calling</h2>
+          <h2 style={styles.bannerTitle}>ஆன்மீக அழைப்பு மற்றும் ஒழுக்கம்</h2>
           <p style={styles.bannerSubtitle}>Section 4 — Inner Calling &amp; Discipline</p>
         </div>
       </div>
@@ -19,7 +19,10 @@ export default function Step4Calling({ nextStep, prevStep }) {
       <div style={styles.form}>
         {/* Q19 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Why do you wish to become a Sadhu and live at the Gurukulam? <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">நீங்கள் ஏன் ஒரு சாதுவாக மாறி குருகுலத்தில் வாழ விரும்புகிறீர்கள்? <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Why do you wish to become a Sadhu and live at the Gurukulam? <span style={{color: 'red'}}>*</span></div>
+          </div>
           <textarea 
  
             style={styles.textarea} 
@@ -31,13 +34,16 @@ export default function Step4Calling({ nextStep, prevStep }) {
 
         {/* Q20 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Have you previously lived in an Ashram, Gurukulam or spiritual community? <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">நீங்கள் முன்பு ஆசிரமம், குருகுலம் அல்லது ஆன்மீக சமூகத்தில் வாழ்ந்திருக்கிறீர்களா? <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Have you previously lived in an Ashram, Gurukulam or spiritual community? <span style={{color: 'red'}}>*</span></div>
+          </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="livedInAshram" value="no" checked={livedInAshram === 'no'} onChange={() => setLivedInAshram('no')} /> No
+              <input type="radio" name="livedInAshram" value="yes" checked={livedInAshram === 'yes'} onChange={() => setLivedInAshram('yes')} /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="livedInAshram" value="yes" checked={livedInAshram === 'yes'} onChange={() => setLivedInAshram('yes')} /> Yes
+              <input type="radio" name="livedInAshram" value="no" checked={livedInAshram === 'no'} onChange={() => setLivedInAshram('no')} /> இல்லை / No
             </label>
           </div>
           {livedInAshram === 'yes' && (
@@ -47,26 +53,32 @@ export default function Step4Calling({ nextStep, prevStep }) {
 
         {/* Q21 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Are you prepared to follow a simple life of discipline, silence, spiritual practice and seva? <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">ஒழுக்கம், மௌனம், ஆன்மீக பயிற்சி மற்றும் சேவை ஆகியவற்றின் எளிய வாழ்க்கையை வாழ நீங்கள் தயாரா? <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Are you prepared to follow a simple life of discipline, silence, spiritual practice and seva? <span style={{color: 'red'}}>*</span></div>
+          </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="discipline" value="yes" required /> Yes
+              <input type="radio" name="discipline" value="yes" required /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="discipline" value="no" required /> No
+              <input type="radio" name="discipline" value="no" required /> இல்லை / No
             </label>
           </div>
         </div>
 
         {/* Q22 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Are you willing to respect the Guru, Gurukulam, residents, visitors and the spiritual environment? <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">குரு, குருகுலம், குடியிருப்பாளர்கள், பார்வையாளர்கள் மற்றும் ஆன்மீக சூழலை மதிக்க நீங்கள் தயாரா? <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Are you willing to respect the Guru, Gurukulam, residents, visitors and the spiritual environment? <span style={{color: 'red'}}>*</span></div>
+          </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="respect" value="yes" required /> Yes
+              <input type="radio" name="respect" value="yes" required /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="respect" value="no" required /> No
+              <input type="radio" name="respect" value="no" required /> இல்லை / No
             </label>
           </div>
 
@@ -126,10 +138,14 @@ const styles = {
     flexDirection: 'column',
     gap: '24px',
   },
+  labelContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
   inputGroup: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '8px',
+    gap: '4px',
   },
   label: {
     fontSize: '14px',

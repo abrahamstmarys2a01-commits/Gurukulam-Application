@@ -151,13 +151,13 @@ const styles = {
   },
   mainTitle: {
     fontSize: '48px',
-    color: '#6e1d15', // Dark maroon color from the image
+    color: 'var(--primary-dark)', // Using theme variable
     margin: '0 0 16px 0',
     fontWeight: 'normal',
   },
   subTitle: {
     fontSize: '28px',
-    color: '#b06d15', // Golden brown color
+    color: 'var(--primary-color)', // Using theme variable
     margin: '0 0 20px 0',
     fontStyle: 'italic',
     fontFamily: 'var(--font-serif)',

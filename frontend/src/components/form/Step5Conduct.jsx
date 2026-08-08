@@ -13,7 +13,7 @@ export default function Step5Conduct({ nextStep, prevStep }) {
           <Shield size={24} color="#1976d2" />
         </div>
         <div style={styles.bannerTextContainer}>
-          <h2 style={styles.bannerTitle}>Safety, Conduct &amp; Responsibility</h2>
+          <h2 style={styles.bannerTitle}>பாதுகாப்பு, நடத்தை மற்றும் பொறுப்பு</h2>
           <p style={styles.bannerSubtitle}>Section 5 — Rules &amp; Guidelines</p>
         </div>
       </div>
@@ -21,34 +21,37 @@ export default function Step5Conduct({ nextStep, prevStep }) {
       <div style={styles.form}>
         {/* Q23 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>
-            I agree not to engage in violence, threats, harassment, abuse, theft or unlawful activities within the Gurukulam. <span style={{color: 'red'}}>*</span>
-          </label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">குருகுலத்திற்குள் வன்முறை, மிரட்டல், துன்புறுத்தல், துஷ்பிரயோகம், திருட்டு அல்லது சட்டவிரோத நடவடிக்கைகளில் ஈடுபட மாட்டேன் என்று ஒப்புக்கொள்கிறேன். <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">I agree not to engage in violence, threats, harassment, abuse, theft or unlawful activities within the Gurukulam. <span style={{color: 'red'}}>*</span></div>
+          </div>
           <label style={styles.checkboxLabel}>
             <input type="checkbox" required style={styles.checkbox} />
-            I Agree
+            நான் ஒப்புக்கொள்கிறேன் / I Agree
           </label>
         </div>
 
         {/* Q24 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>
-            I agree to follow the Gurukulam’s safety, accommodation, spiritual and conduct rules. <span style={{color: 'red'}}>*</span>
-          </label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">குருகுலத்தின் பாதுகாப்பு, தங்குமிடம், ஆன்மீகம் மற்றும் நடத்தை விதிகளைப் பின்பற்ற நான் ஒப்புக்கொள்கிறேன். <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">I agree to follow the Gurukulam’s safety, accommodation, spiritual and conduct rules. <span style={{color: 'red'}}>*</span></div>
+          </div>
           <label style={styles.checkboxLabel}>
             <input type="checkbox" required style={styles.checkbox} />
-            I Agree
+            நான் ஒப்புக்கொள்கிறேன் / I Agree
           </label>
         </div>
 
         {/* Q25 */}
         <div style={styles.inputGroup}>
-          <label style={styles.label}>
-            I understand that Gurukulam life involves ordinary residential, travel, physical, environmental and other risks, and I will take reasonable care of my own safety and follow safety instructions. <span style={{color: 'red'}}>*</span>
-          </label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">குருகுல வாழ்க்கையில் சாதாரண குடியிருப்பு, பயணம், உடல், சுற்றுச்சூழல் மற்றும் பிற அபாயங்கள் உள்ளன என்பதை நான் புரிந்துகொள்கிறேன், மேலும் எனது சொந்த பாதுகாப்பில் நான் நியாயமான கவனம் செலுத்துவேன் மற்றும் பாதுகாப்பு வழிமுறைகளைப் பின்பற்றுவேன். <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">I understand that Gurukulam life involves ordinary residential, travel, physical, environmental and other risks, and I will take reasonable care of my own safety and follow safety instructions. <span style={{color: 'red'}}>*</span></div>
+          </div>
           <label style={styles.checkboxLabel}>
             <input type="checkbox" required style={styles.checkbox} />
-            I Understand & Agree
+            நான் புரிந்துகொண்டு ஒப்புக்கொள்கிறேன் / I Understand & Agree
           </label>
 
         </div>
@@ -107,10 +110,14 @@ const styles = {
     flexDirection: 'column',
     gap: '24px',
   },
+  labelContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
   inputGroup: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '12px',
+    gap: '4px',
   },
   label: {
     fontSize: '15px',

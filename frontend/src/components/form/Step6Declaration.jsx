@@ -13,7 +13,7 @@ export default function Step6Declaration({ prevStep }) {
           <CheckSquare size={24} color="#1976d2" />
         </div>
         <div style={styles.bannerTextContainer}>
-          <h2 style={styles.bannerTitle}>Important Declaration</h2>
+          <h2 style={styles.bannerTitle}>முக்கியமான அறிவிப்பு</h2>
           <p style={styles.bannerSubtitle}>Section 6 — Acknowledgment &amp; Submission</p>
         </div>
       </div>
@@ -23,35 +23,47 @@ export default function Step6Declaration({ prevStep }) {
           <ShieldAlert size={20} color="var(--primary-color)" />
         </div>
         <div style={styles.textStack}>
-          <p style={styles.declText}>I confirm that the information given by me is true and complete to the best of my knowledge.</p>
-          <p style={styles.declText}>I voluntarily seek residence at Shree Datta Easanamma Gurukulam. I understand that food and accommodation may be provided as seva/support to accepted seekers, subject to the Gurukulam’s rules, capacity and terms.</p>
-          <p style={styles.declText}>I understand that the Gurukulam is a spiritual residential environment and not a hospital or medical treatment facility.</p>
-          <p style={styles.declText}>I understand and accept that accidents, illness, injury, natural events and other unforeseen circumstances can occur during residential life. To the maximum extent permitted by applicable law, the Gurukulam does not assume responsibility for risks or incidents arising from my own actions, undisclosed conditions, ordinary unavoidable risks or circumstances beyond its reasonable control. This does not exclude any responsibility that cannot lawfully be excluded.</p>
-          <p style={styles.declText}>I agree to immediately inform the Gurukulam about any serious health, safety or safeguarding concern.</p>
+          <p style={styles.declText}>I confirm that the information given by me is true and complete to the best of my knowledge. (நான் அளித்த தகவல்கள் என் அறிவுக்கு எட்டியவரை உண்மையானவை மற்றும் முழுமையானவை என்று உறுதிப்படுத்துகிறேன்.)</p>
+          <p style={styles.declText}>I voluntarily seek residence at Shree Datta Easanamma Gurukulam. I understand that food and accommodation may be provided as seva/support to accepted seekers, subject to the Gurukulam’s rules, capacity and terms. (ஸ்ரீ தத்த ஈசானம்மா குருகுலத்தில் நான் தானாக முன்வந்து தங்குமிடம் தேடுகிறேன். குருகுலத்தின் விதிகள், திறன் மற்றும் விதிமுறைகளுக்கு உட்பட்டு, ஏற்றுக்கொள்ளப்பட்ட சாதகர்களுக்கு உணவு மற்றும் தங்குமிடம் சேவையாக/ஆதரவாக வழங்கப்படலாம் என்பதை நான் புரிந்துகொள்கிறேன்.)</p>
+          <p style={styles.declText}>I understand that the Gurukulam is a spiritual residential environment and not a hospital or medical treatment facility. (குருகுலம் ஒரு ஆன்மீக உறைவிடச் சூழல் என்றும் மருத்துவமனை அல்லது மருத்துவ சிகிச்சை வசதி அல்ல என்றும் நான் புரிந்துகொள்கிறேன்.)</p>
+          <p style={styles.declText}>I understand and accept that accidents, illness, injury, natural events and other unforeseen circumstances can occur during residential life. To the maximum extent permitted by applicable law, the Gurukulam does not assume responsibility for risks or incidents arising from my own actions, undisclosed conditions, ordinary unavoidable risks or circumstances beyond its reasonable control. This does not exclude any responsibility that cannot lawfully be excluded. (குடியிருப்பு வாழ்க்கையின் போது விபத்துக்கள், நோய், காயம், இயற்கை நிகழ்வுகள் மற்றும் பிற எதிர்பாராத சூழ்நிலைகள் ஏற்படலாம் என்பதை நான் புரிந்துகொள்கிறேன் மற்றும் ஏற்றுக்கொள்கிறேன். பொருந்தக்கூடிய சட்டத்தால் அனுமதிக்கப்பட்ட அதிகபட்ச அளவிற்கு, குருகுலம் எனது சொந்த செயல்கள், வெளிப்படுத்தப்படாத நிலைமைகள், சாதாரண தவிர்க்க முடியாத அபாயங்கள் அல்லது அதன் நியாயமான கட்டுப்பாட்டிற்கு அப்பாற்பட்ட சூழ்நிலைகளால் ஏற்படும் அபாயங்கள் அல்லது சம்பவங்களுக்கு பொறுப்பேற்காது. சட்டப்பூர்வமாக விலக்க முடியாத எந்தவொரு பொறுப்பையும் இது விலக்காது.)</p>
+          <p style={styles.declText}>I agree to immediately inform the Gurukulam about any serious health, safety or safeguarding concern. (ஏதேனும் தீவிரமான உடல்நலம், பாதுகாப்பு அல்லது பாதுகாப்பு கவலைகள் குறித்து உடனடியாக குருகுலத்திற்கு தெரிவிக்க நான் ஒப்புக்கொள்கிறேன்.)</p>
         </div>
       </div>
 
       <div style={styles.form}>
         <div style={styles.row}>
           <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <label style={styles.label}>Applicant Name <span style={{color: 'red'}}>*</span></label>
+            <div style={styles.labelContainer}>
+              <div className="label-tamil">விண்ணப்பதாரர் பெயர்: <span style={{color: 'red'}}>*</span></div>
+              <div className="label-english">Applicant Name: <span style={{color: 'red'}}>*</span></div>
+            </div>
             <input type="text" style={styles.input} placeholder="Enter your full name" required />
           </div>
         </div>
         
         <div style={styles.row}>
           <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <label style={styles.label}>Signature <span style={{color: 'red'}}>*</span></label>
+            <div style={styles.labelContainer}>
+              <div className="label-tamil">கையொப்பம்: <span style={{color: 'red'}}>*</span></div>
+              <div className="label-english">Signature: <span style={{color: 'red'}}>*</span></div>
+            </div>
             <input type="text" style={styles.input} placeholder="Type your full name as signature" required />
           </div>
           <div style={{ ...styles.inputGroup, flex: 1 }}>
-            <label style={styles.label}>Date <span style={{color: 'red'}}>*</span></label>
+            <div style={styles.labelContainer}>
+              <div className="label-tamil">தேதி: <span style={{color: 'red'}}>*</span></div>
+              <div className="label-english">Date: <span style={{color: 'red'}}>*</span></div>
+            </div>
             <input type="date" style={styles.input} required />
           </div>
         </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Place <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">இடம்: <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Place: <span style={{color: 'red'}}>*</span></div>
+          </div>
           <input type="text" style={styles.input} placeholder="Enter your city/town" required />
         </div>
 
@@ -164,6 +176,10 @@ const styles = {
     flexDirection: 'column',
     gap: '24px',
   },
+  labelContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
   row: {
     display: 'flex',
     gap: '20px',
@@ -171,7 +187,7 @@ const styles = {
   inputGroup: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '8px',
+    gap: '4px',
   },
   label: {
     fontSize: '14px',

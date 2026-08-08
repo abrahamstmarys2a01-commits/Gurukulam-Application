@@ -11,40 +11,55 @@ export default function Step2Emergency({ nextStep, prevStep }) {
           <Phone size={24} color="#1976d2" />
         </div>
         <div style={styles.bannerTextContainer}>
-          <h2 style={styles.bannerTitle}>Emergency &amp; Family</h2>
+          <h2 style={styles.bannerTitle}>அவசரகால தொடர்பு மற்றும் குடும்ப பொறுப்புகள்</h2>
           <p style={styles.bannerSubtitle}>Section 2 — Emergency Contacts &amp; Family Responsibilities</p>
         </div>
       </div>
 
       <div style={styles.form}>
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Emergency Contact Name <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">அவசரகால தொடர்பு பெயர்: <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Emergency Contact Name: <span style={{color: 'red'}}>*</span></div>
+          </div>
           <input type="text" style={styles.input} placeholder="Enter emergency contact name" required />
         </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Relationship <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">உறவுமுறை: <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Relationship: <span style={{color: 'red'}}>*</span></div>
+          </div>
           <input type="text" style={styles.input} placeholder="Enter relationship (e.g., Father, Spouse)" required />
         </div>
         
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Phone Number <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">தொலைபேசி எண்: <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Phone Number: <span style={{color: 'red'}}>*</span></div>
+          </div>
           <input type="tel" style={styles.input} placeholder="Enter phone number" required />
         </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Parent / Spouse / Family Contact <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">பெற்றோர் / துணைவர் / குடும்ப தொடர்பு: <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Parent / Spouse / Family Contact: <span style={{color: 'red'}}>*</span></div>
+          </div>
           <input type="text" style={styles.input} placeholder="Enter parent/spouse contact details" required />
         </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Do you have children, dependents or important family responsibilities? <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">உங்களுக்கு குழந்தைகள், சார்ந்திருப்பவர்கள் அல்லது முக்கியமான குடும்ப பொறுப்புகள் உள்ளனவா? <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Do you have children, dependents or important family responsibilities? <span style={{color: 'red'}}>*</span></div>
+          </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="dependents" value="no" checked={hasDependents === 'no'} onChange={() => setHasDependents('no')} /> No
+              <input type="radio" name="dependents" value="yes" checked={hasDependents === 'yes'} onChange={() => setHasDependents('yes')} /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="dependents" value="yes" checked={hasDependents === 'yes'} onChange={() => setHasDependents('yes')} /> Yes
+              <input type="radio" name="dependents" value="no" checked={hasDependents === 'no'} onChange={() => setHasDependents('no')} /> இல்லை / No
             </label>
           </div>
           {hasDependents === 'yes' && (
@@ -53,19 +68,21 @@ export default function Step2Emergency({ nextStep, prevStep }) {
         </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>Is your family aware of your decision to join the Gurukulam? <span style={{color: 'red'}}>*</span></label>
+          <div style={styles.labelContainer}>
+            <div className="label-tamil">நீங்கள் குருகுலத்தில் சேரும் முடிவு உங்கள் குடும்பத்தினருக்கு தெரியுமா? <span style={{color: 'red'}}>*</span></div>
+            <div className="label-english">Is your family aware of your decision to join the Gurukulam? <span style={{color: 'red'}}>*</span></div>
+          </div>
           <div style={styles.radioGroup}>
             <label style={styles.radioLabel}>
-              <input type="radio" name="familyAware" value="yes" required /> Yes
+              <input type="radio" name="familyAware" value="yes" required /> ஆம் / Yes
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="familyAware" value="no" required /> No
+              <input type="radio" name="familyAware" value="no" required /> இல்லை / No
             </label>
             <label style={styles.radioLabel}>
-              <input type="radio" name="familyAware" value="na" required /> Not Applicable
+              <input type="radio" name="familyAware" value="na" required /> பொருந்தாது / Not Applicable
             </label>
           </div>
-
         </div>
       </div>
     </div>
@@ -122,6 +139,10 @@ const styles = {
     flexDirection: 'column',
     gap: '24px',
   },
+  labelContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
   row: {
     display: 'flex',
     gap: '20px',
@@ -129,7 +150,7 @@ const styles = {
   inputGroup: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '8px',
+    gap: '4px',
   },
   label: {
     fontSize: '14px',
